@@ -2,7 +2,7 @@
 
 ![screenshot](https://github.com/danigrant/enterprise-docs/raw/master/dash.png)
 
-Welcome to EnterpriseReady! Our goal is to help you move faster building your SaaS application by providing enterprise-ready account features such as audit logging and role-based access control that work out of the box. With EnterpriseReady, you can focus on what you do best – actually building your product – and leave all of the enterprise bits of your SaaS application to us.
+Welcome to EnterpriseReady. Our goal is to help you move faster building your SaaS application by providing you enterprise-ready account features such as audit logging and role-based access control that work out of the box. With EnterpriseReady, you can focus on what you do best – actually building your product – and leave all of the enterprise bits of your SaaS application to us.
 
 With EnterpriseReady, you can easily add:
 * Multi-User Team Management
