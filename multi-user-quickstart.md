@@ -27,7 +27,7 @@ Permissions are granular read and edit flags that are combined to create broader
 
 Permissions are common across teams in an application namespace.
 
-You may wish to create your own custom permissions for actions specific to your application. For example, you may wish to create a permission for managing billing in your application. To create a new `billing` permission:
+You may wish to create your own custom permissions for actions specific to your application. For example, you may wish to create a permission for managing billing in your application. To create new `billing:read` and `billing:edit` permissions:
 
 ```
 POST /app/:app/teams/permissions
@@ -40,3 +40,16 @@ Required parameters
 | permission    | string        | "billing"  (this automatically creates a billing:read and billing:edit permission)   |
 
 ## Combine Permissions To Create Roles
+
+Permissions are the granular developer level access control rules, and roles are user-friendly and seen in the dashboard. Roles are made up of one or more permissions. To create a new role called "Super Admin" that is made up of the default `team:edit` and the new `billing:edit` permission you just created:
+
+```
+POST /app/:app/teams/roles
+```
+
+Required parameters
+
+| Name          | Type          | Example       |
+| ------------- | ------------- | ------------- |
+| name          | string        | "Super Admin" |
+| permissions   | array         | ["team:edit", "billing:edit"] |
