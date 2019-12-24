@@ -1,5 +1,7 @@
 # Welcome To EnterpriseReady
 
+![screenshot](https://github.com/danigrant/enterprise-docs/raw/master/dash.png)
+
 EnterpriseReady is enterprise-ready SaaS in a box. With EnterpriseReady, you can focus on what you do best – actually building your product – and leave all of the enterprise bits of your SaaS application to us.
 
 The EnterpriseReady API Has The Following Work-Out-Of-The-Box Enterprise Features:
