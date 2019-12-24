@@ -42,7 +42,9 @@ Required parameters
 
 | Name          | Type          | Example       |
 | ------------- | ------------- | ------------- |
-| users         | array         | [{ "user_email": "user@example.com", "permissions": ["team:edit"] |
+| users         | array         | [{ "user_email": "user@example.com", "user_id": "123456" "permissions": ["team:edit"] |
+
+The user id set in Bookkeeper should be the same as the internal user id you have in your database so that way you can correlate users in Bookkeeper with your internal record keeping.
 
 Now go check your email, you will now have an invitation to join your team. Once you accept that emailed invitation, you will officially be part of your team on Bookkeeper. If you want users to join teams on your platform without needing to accept an email invitation, you will just set "force_add" to true in the request. You can customize the invitation email in the dashboard based on what you would like your users to see when they invite their teammates to your application.
 
@@ -53,7 +55,55 @@ When we added you as a user to your new team, you may have noticed we gave you a
 You can also define your own permissions on Bookkeeper. To create a new permission, go to the permission section of the dashboard where you will see existing permissions (at this point, just the default ones) and click the +New Permission button. Or, as always you can use the API:
 
 ```
-
+POST Bookkeeper.com/api/space/:space_id/permissions
 ```
 
+Required parameters
+
+| Name          | Type          | Example       |
+| ------------- | ------------- | ------------- |
+| permission    | string        | "billing"     |
+
+ The API above will automatically create a `billing:read` and `billing:edit` permission so that you do not have to define both.
+
+ These new permissions you should be related to functionality in your app your enterprise customers may want to gate access to. Then when your users are interacting with your application, when they go to perform an action, you can check if they have the required permission. To check if a user has the required permission for an action, you can check the `is_allowed` API endpoint:
+
+ ```
+ POST Bookkeeper.com/api/space/:space_id/teams/:team_id/is_allowed
+ ```
+
+ Required parameters
+
+ | Name          | Type          | Example        |
+ | ------------- | ------------- | -------------- |
+ | user_id       | string        | "123456"       |
+ | permissions   | array         | ["billing:read"] |
+
+ The above API request returns true or false whether a given user in a given team has a specified list of permissions.
+
 ## Getting Started With Audit Logs
+
+One feature enterprise customers require is an audit log of every action performed by one of their team members.
+
+You can send actions to the audit logging service via API like this:
+
+```
+POST Bookkeeper.com/api/space/:space_id/teams/:team_id/audit_log
+```
+
+Required parameters
+
+| Name          | Type          | Example        |
+| ------------- | ------------- | -------------- |
+| event_name    | string        | "log in"       |
+| ip_address    | string        | "1.1.1.1"      |
+| user_id       | string        | "123456"       |
+| metadata      | object        | { "extra_info": "goes here" } |
+
+`timestamp` is an optional parameter - if it is not set, the current datetime is used.
+
+Go ahead and try it - send an event to the audit logs:
+
+And now you can query the audit logs to get back the event you just sent.
+
+Every action within Bookkeeper is audited and recorded in audit logs so if you visit your Bookkeeper settings you can see the audit logs in action, you will see your previous actions of creating the team, adding the user and assigning them a permission.
