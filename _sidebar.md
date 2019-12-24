@@ -1,8 +1,6 @@
 - Getting started
 
   - [Quickstart](quickstart.md)
-  - [Using The API](api-getting-started.md)
-  - [Using The React Library](react-getting-started.md)
 
 - Team Management
 
@@ -20,7 +18,3 @@
 - Single Sign-On
 
   - [Single Sign-On Quickstart](sso-quickstart.md)
-
-- API Reference
-
-  - [Reference](api-reference.md)
