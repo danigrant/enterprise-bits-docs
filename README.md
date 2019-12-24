@@ -15,4 +15,4 @@ The EnterpriseReady API has the following enterprise features that you can add t
 
 Add EnterpriseReady via API and our pre-baked React component library.
 
-Ready go try it out? [Let's go!](quickstart.md)
+Ready to try it out? [Let's go!](quickstart.md)
