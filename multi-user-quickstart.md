@@ -30,7 +30,7 @@ Permissions are common across teams in an application namespace.
 You may wish to create your own custom permissions for actions specific to your application. For example, you may wish to create a permission for managing billing in your application. To create new `billing:read` and `billing:edit` permissions:
 
 ```
-POST /app/:app/teams/permissions
+POST /app/:app/permissions
 ```
 
 Required parameters
@@ -44,7 +44,7 @@ Required parameters
 Permissions are the granular developer level access control rules, and roles are user-friendly and seen in the dashboard. Roles are made up of one or more permissions. To create a new role called "Super Admin" that is made up of the default `team:edit` and the new `billing:edit` permission you just created:
 
 ```
-POST /app/:app/teams/roles
+POST /app/:app/roles
 ```
 
 Required parameters
@@ -53,3 +53,39 @@ Required parameters
 | ------------- | ------------- | ------------- |
 | name          | string        | "Super Admin" |
 | permissions   | array         | ["team:edit", "billing:edit"] |
+
+## Add Users To Your New Team
+
+To add a user to the new team you've created:
+
+```
+POST /app/:app/teams/:team_id
+```
+
+Required parameters
+
+| Name          | Type          | Example       |
+| ------------- | ------------- | ------------- |
+| users         | array         | [{ "user_email": "user@example.com", "roles": ["Super Admin"], "force_add":  false }] |
+
+`force_add` is an optional parameter. By default it is set to false. If it is set to true, the user is force added without receiving an email invitation. If it is set to false, the user is pending an invite to the organization and is sent an email invitation they need to click to accept. You can customize the email invitation in the dashboard. By default invitations expire in 30 days but you can customize the default expiration period in the team security settings.
+
+You can now inspect the team and see that the user you've added is now pending user invite:
+
+```
+GET /app/:app/teams/:team_id
+```
+
+```
+{
+  "name": "",
+  "logo-url": "",
+   "security policies": {
+       "2fa-encorced": true,
+       "required-login-domain": "company.com",
+       "location-whitelist": []
+   }
+   "active-members": [],
+   "pending-invited-members": [{ user_email: "user@example.com", "roles": ["Super Admin"], "invite_sent_on": "date" "invite_expires_on": "date" }]
+}
+```
