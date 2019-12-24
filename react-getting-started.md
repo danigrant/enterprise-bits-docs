@@ -1,1 +1,1 @@
-# Getting Started With The Bookkeeper React Component Library
+# Getting Started With The EnterpriseReady React Component Library
