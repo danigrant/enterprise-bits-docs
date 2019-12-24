@@ -16,12 +16,12 @@ To see what EnterpriseReady can do, let's dive in and try it out.
 
 ## Getting Started With Teams
 
-If you haven't already, create an account at EnterpriseReady.com. After you register, you'll be asked to create your first space. Think of spaces like folders in your desktop, they just help you keep things organized. Rules and settings can be shared and re-used inside a space. Typically a space maps to a single application of yours, but it doesn't have to.
+If you haven't already, create an account at enterpriseready.com. After you register, you'll be asked to create your first space. Think of spaces like folders in your desktop, they just help you keep things organized. Rules and settings can be shared and re-used inside a space. Typically a space maps to a single application of yours, but it doesn't have to.
 
 Once you create your space, you'll be directed to the team management page. Since your customers work in teams in your app, teams are at the core of the EnterpriseReady service. To try out EnterpriseReady, get started by creating your first team. You can do that by clicking the +New Team button in the dashboard, or you can do that via API:
 
 ```
-POST EnterpriseReady.com/api/space/:space_id/teams
+POST enterpriseready.com/api/space/:space_id/teams
 ```
 
 Required parameters
@@ -35,7 +35,7 @@ Now you have a team to try out EnterpriseReady's functionality with. Woo!
 Try inviting yourself to your newly created team. You can do this in the dashboard by clicking +Add User, or you can do this via API:
 
 ```
-POST EnterpriseReady.com/api/space/:space_id/teams/:team_id
+POST enterpriseready.com/api/space/:space_id/teams/:team_id
 ```
 
 Required parameters
@@ -55,7 +55,7 @@ When we added you as a user to your new team, you may have noticed we gave you a
 You can also define your own permissions on EnterpriseReady. To create a new permission, go to the permission section of the dashboard where you will see existing permissions (at this point, just the default ones) and click the +New Permission button. Or, as always you can use the API:
 
 ```
-POST EnterpriseReady.com/api/space/:space_id/permissions
+POST enterpriseready.com/api/space/:space_id/permissions
 ```
 
 Required parameters
@@ -69,7 +69,7 @@ Required parameters
  These new permissions you should be related to functionality in your app your enterprise customers may want to gate access to. Then when your users are interacting with your application, when they go to perform an action, you can check if they have the required permission. To check if a user has the required permission for an action, you can check the `is_allowed` API endpoint:
 
  ```
- POST EnterpriseReady.com/api/space/:space_id/teams/:team_id/is_allowed
+ POST enterpriseready.com/api/space/:space_id/teams/:team_id/is_allowed
  ```
 
  Required parameters
@@ -88,7 +88,7 @@ One feature enterprise customers require is an audit log of every action perform
 You can send actions to the audit logging service via API like this:
 
 ```
-POST EnterpriseReady.com/api/space/:space_id/teams/:team_id/audit_log
+POST enterpriseready.com/api/space/:space_id/teams/:team_id/audit_log
 ```
 
 Required parameters
@@ -105,7 +105,7 @@ Required parameters
 Go ahead and try it - send an event to the audit logs. And once you do, you can then immediately query the audit logs to get back the event you just sent:
 
 ```
-GET EnterpriseReady.com/api/space/:space_id/teams/:team_id/audit_log?since=2020-01-01
+GET enterpriseready.com/api/space/:space_id/teams/:team_id/audit_log?since=2020-01-01
 ```
 
 Every action within EnterpriseReady is audited and recorded in audit logs so if you visit your EnterpriseReady settings you can see the audit logs in action, you will see your previous actions of creating the team, adding the user and assigning them a permission.

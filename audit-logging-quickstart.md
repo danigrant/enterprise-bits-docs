@@ -5,7 +5,7 @@ One feature enterprise customers require is an audit log of every action perform
 You can send actions to the audit logging service via API like this:
 
 ```
-POST EnterpriseReady.com/api/space/:space_id/teams/:team_id/audit_log
+POST enterpriseready.com/api/space/:space_id/teams/:team_id/audit_log
 ```
 
 Required parameters
@@ -22,7 +22,7 @@ Required parameters
 Go ahead and try it - send an event to the audit logs. And once you do, you can then immediately query the audit logs to get back the event you just sent:
 
 ```
-GET EnterpriseReady.com/api/space/:space_id/teams/:team_id/audit_log?since=2020-01-01
+GET enterpriseready.com/api/space/:space_id/teams/:team_id/audit_log?since=2020-01-01
 ```
 
 Every action within EnterpriseReady is audited and recorded in audit logs so if you visit your EnterpriseReady settings you can see the audit logs in action, you will see your previous actions of creating the team, adding the user and assigning them a permission.
@@ -32,5 +32,5 @@ Every action within EnterpriseReady is audited and recorded in audit logs so if 
 ### Filtering Request Structure
 
 ```
-GET EnterpriseReady.com/api/space/:space_id/teams/:team_id/audit_log?user=={user_id}&event=={event_name}&since=2020-01-01&until=2020-01-02&limit={limit}
+GET enterpriseready.com/api/space/:space_id/teams/:team_id/audit_log?user=={user_id}&event=={event_name}&since=2020-01-01&until=2020-01-02&limit={limit}
 ```
