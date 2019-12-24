@@ -23,7 +23,7 @@ Required parameters
 
 ## Create Permissions That Will Be Needed By Those In Your Team
 
-Permissions are granular read and edit flags that are combined to create broader more useful roles. EnterpriseBits ships with some default permissions created: `team:edit` and `team:read` for seeing and making changes to the team, respectively, and `team-security:read` and `team-security:edit` for managing security configurations of teams. All `edit` permissions contain `read` by default.
+Permissions are granular read and edit flags that are combined to create broader more useful roles. Bookkeeper ships with some default permissions created: `team:edit` and `team:read` for seeing and making changes to the team, respectively, and `team-security:read` and `team-security:edit` for managing security configurations of teams. All `edit` permissions contain `read` by default.
 
 Permissions are common across teams in an application namespace.
 

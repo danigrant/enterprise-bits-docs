@@ -1,1 +1,1 @@
-# Getting Started With The EnterpriseBits React Component Library
+# Getting Started With The Bookkeeper React Component Library
