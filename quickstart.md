@@ -102,8 +102,14 @@ Required parameters
 
 `timestamp` is an optional parameter - if it is not set, the current datetime is used.
 
-Go ahead and try it - send an event to the audit logs:
+Go ahead and try it - send an event to the audit logs. And once you do, you can then immediately query the audit logs to get back the event you just sent:
 
-And now you can query the audit logs to get back the event you just sent.
+```
+GET Bookkeeper.com/api/space/:space_id/teams/:team_id/audit_log?since=2020-01-01
+```
 
 Every action within Bookkeeper is audited and recorded in audit logs so if you visit your Bookkeeper settings you can see the audit logs in action, you will see your previous actions of creating the team, adding the user and assigning them a permission.
+
+## And you're on your way!
+
+Our goal is to help you quickly get all of the enterprise features out of the way. If there is anything we could change or add to make that easier, let us know: mayor@dani.town.
