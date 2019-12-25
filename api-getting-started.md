@@ -1,1 +1,1 @@
-# Getting Started With The EnterpriseReady API
+# Getting Started With The EnterpriseNow API
